@@ -1,0 +1,19 @@
+<div id="header">
+        <a href=""><img src="assets/image/logo.png" width="200" height="96" id="logo"/></a>
+    <nav>
+        <ul>
+            <li>
+                <a routerLink="/" class="name">Home</a>
+            </li>
+            <li *ngIf = "!userIsAuthenticated">
+                <a routerLink="/register" routerLinkActive="active" class="name">Reg/Login</a>
+            </li>
+            <li *ngIf = "userIsAuthenticated">
+                <a routerLink="/profile" routerLinkActive="active" class="name">My Profile</a>
+            </li>
+            <li *ngIf = "userIsAuthenticated">
+                <button mat-button class="btn" (click) ="onLogOut()">Log Out</button>
+            </li>
+        </ul>
+    </nav>
+</div>

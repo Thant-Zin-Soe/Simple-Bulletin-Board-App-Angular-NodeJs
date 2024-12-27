@@ -1,0 +1,46 @@
+#header {
+    background-color: #081534;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+nav ul {
+    list-style-type: none;
+    padding-top: 40px;
+    margin-left: 60%;
+}
+
+nav a {
+    text-decoration: none;  
+    float:left;
+}
+.btn:hover{ 
+    background-color:#0e7299;
+    height: 58px;
+}
+.btn {
+    float:left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    color:#fff;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.name:hover{background-color:#0e7299;}
+
+.name {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    color:#fff;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+#logo {
+    float: left;
+    margin-left: 50px;
+}

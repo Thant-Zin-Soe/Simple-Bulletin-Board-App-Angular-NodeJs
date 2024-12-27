@@ -1,0 +1,25 @@
+<div>
+    <mat-card>
+        <form [formGroup]="form" (submit)="onEditProfile()">
+        <mat-form-field class = "name">
+            <input matInput type = "text" 
+            formControlName="firstName"
+            placeholder="First Name"
+            class="name">
+            <mat-error *ngIf="form.get('firstName').invalid">Please enter First Name.</mat-error>
+        </mat-form-field>
+        <mat-form-field class = "name" >
+            <input matInput type = "text" formControlName="lastName"
+            placeholder="Last Name"
+            class="name">
+        </mat-form-field>
+        <mat-form-field class ="name">
+            <input matInput type = "text"
+            formControlName = "email"
+            placeholder="Email"
+            class = "name">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" id = "edit">Edit</button>
+        </form>
+    </mat-card>
+</div>

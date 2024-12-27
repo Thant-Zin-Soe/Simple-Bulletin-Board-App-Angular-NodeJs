@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Comment </h1>
+<div mat-dialog-content>
+    <mat-card>
+        <form (submit)="onSaveCmt(postCmt)" #postCmt ="ngForm">
+            <mat-form-field>
+                <textarea matInput name="content" ngModel 
+                placeholder="Comment" id="area" #content="ngModel"></textarea>
+            </mat-form-field>
+            <button mat-button mat-dialog-close id="cancel">Cancel</button>&nbsp;
+            <button mat-raised-button color="primary" type="submit" id="post">Post</button>
+        </form>
+    </mat-card><br><hr>
+    <div multi= "true" *ngIf="comment.length > 0">
+        <div *ngFor="let post of comment">
+            <div *ngIf=" postId == post.postId">
+                <mat-card>
+                    <mat-card-actions fxFlexAlign="end" align="end" style="float:right" 
+                    *ngIf = "userIsAuthenticated && userId == post.creator._id">
+                        <button mat-icon-button (click) = "onDelete(post.id)">
+                            <mat-icon >delete</mat-icon>
+                        </button>
+                    </mat-card-actions>
+                    <mat-card-header >
+                        <div mat-card-avatar class="header-image"></div>
+                            <mat-card-title>
+                                {{ post.creator.firstName }} {{  post.creator.lastName  }}
+                            </mat-card-title>
+                        </mat-card-header><br>
+                    <mat-card-content>
+                        <p>{{ post.content }}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+            <p class = "info-text mat-body-1" *ngIf="comment.length <= 0">No comments</p>
+    </div>
+</div>

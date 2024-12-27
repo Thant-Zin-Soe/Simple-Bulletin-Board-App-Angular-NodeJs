@@ -1,0 +1,75 @@
+<div>
+    <div class = "row">
+        <div class = "column left">
+            <h2 id= "head">Welcome to iNet Bulletin Board</h2>
+            <img src="assets/image/reg-img.jpg"/>
+        </div>
+        <div class = "column right">
+            <mat-card>
+                <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+                    <mat-form-field class="size">
+                        <input matInput name="email" ngModel type="email" #emailInput="ngModel" placeholder="Email" required email class="login">
+                        <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+                    </mat-form-field><br>
+                    <mat-form-field class="size">
+                        <input matInput name="password" ngModel type = "password" #passwordInput="ngModel" placeholder="Password" required class="login">
+                        <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+                    </mat-form-field>
+                    <button mat-raised-button color="primary" type="submit">Login</button>
+                </form>
+            </mat-card>
+            <hr/>
+            <h2 id="register">Register your account.</h2>
+            <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
+                <mat-card>
+                    <mat-form-field class = "name">
+                        <input matInput ngModel type = "text" 
+                        name="firstName"
+                        placeholder="First Name"
+                        required
+                        #fNameInput="ngModel"
+                        class="regInput">
+                        <mat-error *ngIf="fNameInput.invalid">Please enter First Name.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class = "name" style="margin-left: 30px;">
+                        <input matInput ngModel type = "text" name="lastName"
+                        placeholder="Last Name"
+                        required
+                        class="regInput">
+                    </mat-form-field>
+                    <mat-form-field class = "user">
+                        <input matInput ngModel type = "email" name="email"
+                        placeholder="User Name"
+                        required email
+                        #emailInput="ngModel"
+                        minlength="5"
+                        class="regInput">
+                        <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+                    </mat-form-field><br/>
+                    <mat-form-field class = "user">
+                        <input matInput ngModel type = "password"  name="password"
+                        placeholder="Password"
+                        required
+                        #psdInput="ngModel"
+                        minlength="8"
+                        class="regInput">
+                        <mat-error *ngIf="psdInput.invalid">Please enter a password.</mat-error>
+                    </mat-form-field><br/>
+                    <!--<mat-form-field class = "user">
+                        <input matInput type = "password" 
+                        placeholder="Confirm Password"
+                        class="regInput">
+                    </mat-form-field><br/>
+                    <h2 style="color:#081534">Birthday</h2>
+                    <mat-form-field id="date">
+                        <input matInput [matDatepicker]="picker"
+                        placeholder="Choose a date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>-->
+                    <button mat-raised-button color="primary" type="submit">Register</button>
+                </mat-card>
+            </form>
+        </div>
+    </div>
+</div>

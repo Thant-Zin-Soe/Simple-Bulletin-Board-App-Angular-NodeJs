@@ -1,0 +1,54 @@
+mat-form-field {
+    width: 100%;
+}
+#title {
+    width:100%;
+    font-size: 1.6em;
+}
+#area {
+    width:100%;
+    height: 200px;
+    font-size: 1.3em;
+}
+h1 {
+    color:#081534;
+}
+
+#cancel {
+    width: 100px;
+    margin-left: 74%;    
+}
+#post {
+    width: 100px;
+}
+#cancel:hover{
+    background-color: #DCDCDC;
+}
+
+#post:hover {
+    background-color: #0a3599;
+}
+
+.action {
+    margin-left: 900px;
+}
+#postList {
+    max-width: 100%;
+}
+input[type="file"] {
+    visibility: hidden;
+}
+
+.image-preview {
+    height: 5rem;
+    margin: 1rem 0;
+}
+
+.image-preview img {
+    height: 100%;
+}
+div {
+    width: 60%;
+    margin-left: auto;
+    margin-right:auto;
+}

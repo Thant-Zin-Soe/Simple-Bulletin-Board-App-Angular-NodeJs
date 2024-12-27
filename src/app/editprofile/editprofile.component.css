@@ -1,0 +1,16 @@
+mat-form-field {
+    width: 100%;
+}
+.name{
+    width:100%;
+    font-size: 1em;
+}
+#edit {
+    width: 100px;
+    margin-left: 74%;    
+}
+div {
+    width: 60%;
+    margin-left: auto;
+    margin-right:auto;
+}

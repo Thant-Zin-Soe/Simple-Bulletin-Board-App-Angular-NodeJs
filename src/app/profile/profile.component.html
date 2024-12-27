@@ -1,0 +1,90 @@
+<div id="main"><br><br>
+    <img src= "assets/image/home1.jpg" width="1200" height="345" id="logo"/><br/><br/>
+    <mat-card id="profile">
+            <mat-card-actions fxFlexAlign="end" align="end" style="float:right">
+                    <a mat-icon-button [routerLink] = "['/editProfile',userId]" >
+                        <mat-icon>mode_edit</mat-icon>
+                    </a>
+            </mat-card-actions>
+        <td>
+            <tr><b>User Name&emsp;</b></tr>
+            <tr><b>Email</b></tr>
+        </td>
+        <td>
+            <tr>:<b>&nbsp;{{firstName}} {{ lastName }}</b></tr>
+            <tr>:<b>&nbsp;{{ email }}</b></tr>
+        </td>
+    </mat-card><br>
+    <div class="row">
+        <div class="column left">
+            <mat-card id = "notice">
+                <h3 id = "head">iNet Community</h3>
+                <p>You can freely share with your friends.</p>
+            </mat-card>
+        </div>
+
+    <div class="column right">
+        <mat-card id = "post">
+            <button mat-button id="btn" (click)="openDialog()">Share something with your friends.</button>
+        </mat-card>
+        <br>
+        <mat-paginator [length]="totalPost" [pageSize]="postPerPage" [pageSizeOptions]="pageSizeOption"
+            (page)="onChangedPage($event)"></mat-paginator>
+            <mat-spinner *ngIf="isLoading"></mat-spinner>
+        <div multi="true" *ngIf="posts.length > 0 && !isLoading">
+            <div *ngFor="let post of posts">
+                <mat-card id = "postList" *ngIf = "userIsAuthenticated && userId == post.creator._id">
+                    <mat-card>
+                        <mat-card-actions fxFlexAlign="end" align="end" style="float:right" >
+                            <a mat-icon-button [routerLink] = "['/edit', post.id]" >
+                                <mat-icon>mode_edit</mat-icon>
+                            </a>
+                            <button mat-icon-button (click) = "onDelete(post.id)">
+                                <mat-icon >delete</mat-icon>
+                            </button>
+                        </mat-card-actions>
+                        <mat-card-header >
+                            <div mat-card-avatar class="header-image"></div>
+                            <mat-card-title>
+                                {{ post.creator.firstName }} {{  post.creator.lastName  }}
+                            </mat-card-title>
+                        </mat-card-header><br>
+                        
+                        <mat-card-header>
+                            <mat-card-title>
+                                {{ post.title }}
+                            </mat-card-title>
+                        </mat-card-header>
+                    
+                        <mat-card-content>
+                            <p>{{ post.content }}</p>
+                        </mat-card-content>
+                        <div class = "post-image">
+                            <img [src] = "post.imagePath" [alt]="post.title">
+                        </div>
+                        <mat-card-actions>
+                            <hr/>
+                            <div *ngFor="let like of post.like" id="like">
+                                <mat-card-action *ngIf="userId != like._id">
+                                        <button mat-button (click)="onLikePost(post.id)" >
+                                            Like
+                                        </button>
+                                </mat-card-action>
+                                <mat-card-action *ngIf="userId == like._id">
+                                    <button mat-button (click)="onLikePost(post.id)" id="likeBtn">
+                                        Liked
+                                    </button>
+                                </mat-card-action>
+                            </div>
+                            <!-- <button mat-button (click)="onLikePost(post.id)" >
+                                Like
+                            </button> -->
+                            <button mat-button (click)="openCmtDialog(post.id)">Comment</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </mat-card>
+            </div>
+        </div>
+        <p class="info-text mat-body-1" *ngIf="posts.length == 0 && !isLoading">No poste added yet!</p>
+    </div>
+</div>

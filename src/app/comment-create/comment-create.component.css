@@ -1,0 +1,34 @@
+mat-form-field {
+    width: 100%;
+}
+#area {
+    width:100%;
+    height: 20px;
+    font-size: 1.3em;
+}
+h1 {
+    color:#081534;
+}
+
+#cancel {
+    width: 100px;
+    margin-left: 74%;    
+}
+#post {
+    width: 100px;
+}
+#cancel:hover{
+    background-color: #DCDCDC;
+}
+
+#post:hover {
+    background-color: #0a3599;
+}
+
+.action {
+    margin-left: 900px;
+}
+#postList {
+    max-width: 100%;
+}
+
